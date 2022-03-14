@@ -204,4 +204,4 @@ let itemsPost = "";
         `
 }
 
-const postElement = document.querySelector("#container").innerHTML = itemsPost;
+const postElement = document.querySelector("#container").innerHTML = itemsPost
