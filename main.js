@@ -190,7 +190,7 @@ let itemsPost = "";
         <div class="post__footer">
             <div class="likes js-likes">
                 <div class="likes__cta">
-                    <a class="like-button  js-like-button" href="#" data-postid="${posts[i].id}">
+                    <a class="like-button  js-like-button" data-postid="${posts[i].id}">
                         <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
                         <span class="like-button__label">Mi Piace</span>
                     </a>
@@ -205,3 +205,19 @@ let itemsPost = "";
 }
 
 const postElement = document.querySelector("#container").innerHTML = itemsPost
+
+const buttonsLike = document.querySelectorAll('.js-like-button')
+const counter = document.querySelectorAll('.js-likes-counter')
+
+for (let i = 0; i < buttonsLike.length; i++) {
+    const buttonLike = buttonsLike[i];
+    buttonLike.addEventListener('click', function(){
+        if (buttonLike.classList.contains('like-button--liked') ){
+                buttonLike.classList.remove('like-button--liked');
+                counter[i].innerHTML = parseInt(counter[i].innerHTML) -1
+        } else {
+            buttonLike.classList.add('like-button--liked')
+            counter[i].innerHTML = parseInt(counter[i].innerHTML) +1
+        }
+    })
+}
